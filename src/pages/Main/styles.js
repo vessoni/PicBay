@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import headerImage from '../../styles/images/new.jpg';
+import headerImage from '../../styles/images/banner.jpg';
 
 export const MainHeader = styled.header`
   height: 45px;
@@ -11,7 +11,7 @@ export const MainHeader = styled.header`
   div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
   }
 
@@ -21,19 +21,24 @@ export const MainHeader = styled.header`
     font-size: 13px;
     color: #667590;
     font-weight: bold;
-    margin-left: 30px;
-    &:first-child {
-      margin: 0px;
-    }
+    font-size: 20px;
+    color: #0097f0;
   }
+`;
+
+export const ContentHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 export const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 65vh;
-  height: 65vh;
+  min-height: 55vh;
+  height: 55vh;
   position: relative;
   background: #000;
   background-image: url(${headerImage});
@@ -52,7 +57,7 @@ export const BannerForm = styled.div`
   align-items: center;
 
   h3 {
-    padding: 10px 5px;
+    padding: 10px;
     font-size: 14px;
   }
 `;
@@ -66,6 +71,7 @@ export const Form = styled.form`
   padding: 10px;
 
   input {
+    text-align: center;
     flex: 1;
     border: 1px solid #eee;
     padding: 10px 12px;
@@ -85,4 +91,88 @@ export const SubmitButton = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const Galery = styled.div`
+  margin: 0.5vw;
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex-flow: row wrap;
+`;
+
+export const ImageContainer = styled.div`
+  box-flex: auto;
+  flex: auto;
+  width: 300px;
+  margin: 0.3vw;
+  display: flex;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+export const Details = styled.div`
+  margin: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h2 {
+    width: 60%;
+    text-align: center;
+    text-justify: inter-word;
+    margin: 30px;
+  }
+`;
+
+export const DiscoverButton = styled.div`
+  background: #0097f0;
+  border: 0;
+  padding: 15px;
+  border-radius: 50px;
+  width: 250px;
+  color: #fff;
+  font-size: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FooterPage = styled.footer`
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  nav,
+  ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #667590;
+    font-weight: bold;
+    margin-left: 30px;
+    &:first-child {
+      color: #0097f0;
+    }
+  }
 `;
