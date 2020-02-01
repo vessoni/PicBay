@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import logo from '../../styles/images/logo.svg';
+import Galery from '../../components/galery';
 
 import {
   MainHeader,
-  Galery,
-  ImageContainer,
   FooterPage,
   Form,
   SubmitButton,
@@ -111,14 +110,14 @@ export default class Main extends Component {
 
         <Galery>
           {galery.map(image => (
-            <ImageContainer key={image.id}>
+            <Link to={`/detail/${image.id}`} key={image.id}>
               <img
                 src={image.webformatURL}
                 width={image.webformatWidth}
                 height={image.webformatHeight}
                 alt={image.tags}
               />
-            </ImageContainer>
+            </Link>
           ))}
         </Galery>
 

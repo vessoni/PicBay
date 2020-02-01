@@ -104,28 +104,6 @@ export const SubmitButton = styled.button.attrs({
   align-items: center;
 `;
 
-export const Galery = styled.div`
-  margin: 0.5vw;
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex-flow: row wrap;
-`;
-
-export const ImageContainer = styled.div`
-  box-flex: auto;
-  flex: auto;
-  width: 300px;
-  margin: 0.3vw;
-  display: flex;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-`;
-
 export const Details = styled.div`
   margin: 35px;
   display: flex;
@@ -185,6 +163,7 @@ export const FooterPage = styled.footer`
     color: #667590;
     font-weight: bold;
     margin-left: 30px;
+    text-align: center;
     &:first-child {
       color: #0097f0;
     }
