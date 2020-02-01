@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import { FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 import api from '../../services/api';
 
 import logo from '../../styles/images/logo.svg';
@@ -57,7 +58,9 @@ export default class Main extends Component {
             <nav>
               <ul>
                 <li>
-                  <img src={logo} alt="Logo" width="40px" /> PicBay
+                  <Link to="/">
+                    <img src={logo} alt="Logo" width="40px" /> PicBay
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -99,7 +102,9 @@ export default class Main extends Component {
         </Galery>
 
         <Details>
-          <DiscoverButton>Discover more </DiscoverButton>
+          <Link to="/images">
+            <DiscoverButton>Discover more </DiscoverButton>
+          </Link>
 
           <h2>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
