@@ -13,12 +13,16 @@ import {
   FooterPage,
   Form,
   SubmitButton,
+  Loading,
+  PageActions,
 } from './styles';
 
 export default class Main extends Component {
   state = {
     find: '',
     galery: [],
+    loading: true,
+    page: 1,
   };
 
   async componentDidMount() {
@@ -28,8 +32,35 @@ export default class Main extends Component {
       },
     });
 
-    this.setState({ galery: response.data.hits });
+    this.setState({
+      galery: response.data.hits,
+      loading: false,
+    });
   }
+
+  apiGetResolution = async () => {
+    const { page } = this.state;
+
+    const response = await api.get('', {
+      params: {
+        per_page: 35,
+        page,
+      },
+    });
+
+    this.setState({
+      galery: response.data.hits,
+      loading: false,
+    });
+  };
+
+  handlePage = async action => {
+    const { page } = this.state;
+    await this.setState({
+      page: action === 'back' ? page - 1 : page + 1,
+    });
+    this.apiGetResolution();
+  };
 
   handleInputChange = e => {
     this.setState({ find: e.target.value });
@@ -44,7 +75,10 @@ export default class Main extends Component {
   };
 
   render() {
-    const { find, galery } = this.state;
+    const { find, galery, loading, page } = this.state;
+    if (loading) {
+      return <Loading>Loading</Loading>;
+    }
     return (
       <>
         <MainHeader>
@@ -87,6 +121,20 @@ export default class Main extends Component {
             </ImageContainer>
           ))}
         </Galery>
+
+        <PageActions>
+          <button
+            type="button"
+            disabled={page < 2}
+            onClick={() => this.handlePage('back')}
+          >
+            Previous
+          </button>
+          <span>Page {page}</span>
+          <button type="button" onClick={() => this.handlePage('next')}>
+            Next
+          </button>
+        </PageActions>
 
         <FooterPage>
           <div>

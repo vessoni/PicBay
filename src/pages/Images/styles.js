@@ -137,3 +137,39 @@ export const FooterPage = styled.footer`
     }
   }
 `;
+
+export const Loading = styled.div`
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+export const PageActions = styled.div`
+  padding-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+
+  button {
+    transition: opacity 0.25s ease-out;
+    border-radius: 20px;
+    outline: 0;
+    border: 0;
+    padding: 15px;
+    margin: 15px;
+    width: 100px;
+    background-color: #0097f0;
+    color: #fff;
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+`;
