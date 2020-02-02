@@ -17,7 +17,7 @@ import {
   PageActions,
 } from './styles';
 
-export default class Main extends Component {
+export default class Seach extends Component {
   state = {
     find: '',
     galery: [],
@@ -77,6 +77,7 @@ export default class Main extends Component {
     await this.setState({
       page: action === 'back' ? page - 1 : page + 1,
     });
+    this.apiGetResolution();
   };
 
   handleInputChange = e => {
@@ -85,6 +86,7 @@ export default class Main extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
+    this.setState({ page: 1 });
 
     this.apiGetResolution();
   };

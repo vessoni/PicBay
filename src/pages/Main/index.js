@@ -34,8 +34,6 @@ export default class Main extends Component {
       },
     });
 
-    console.log(response);
-
     this.setState({ galery: response.data.hits });
   }
 

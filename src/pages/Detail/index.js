@@ -30,6 +30,7 @@ import {
   Recomend,
   Details,
   DiscoverButton,
+  Loading,
 } from './styles';
 
 export default class Detail extends Component {
@@ -39,6 +40,7 @@ export default class Detail extends Component {
     galery: [],
     profile: '',
     id: '',
+    loading: true,
   };
 
   async componentDidMount() {
@@ -63,6 +65,7 @@ export default class Detail extends Component {
       image: response.data.hits[0],
       id: imageId,
       profile: `https://pixabay.com/users/${response.data.hits[0].user}-${response.data.hits[0].user_id}`,
+      loading: false,
     });
   }
 
@@ -98,8 +101,10 @@ export default class Detail extends Component {
   };
 
   render() {
-    const { image, find, profile, galery } = this.state;
-
+    const { image, find, profile, galery, loading } = this.state;
+    if (loading) {
+      return <Loading>Loading</Loading>;
+    }
     return (
       <>
         <MainHeader>
@@ -208,7 +213,7 @@ export default class Detail extends Component {
             ))}
           </Galery>{' '}
           <Details>
-            <Link to="/images">
+            <Link to="/search/-">
               <DiscoverButton>Discover more </DiscoverButton>
             </Link>
           </Details>
