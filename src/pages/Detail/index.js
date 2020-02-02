@@ -38,6 +38,7 @@ export default class Detail extends Component {
     find: '',
     galery: [],
     profile: '',
+    id: '',
   };
 
   async componentDidMount() {
@@ -60,8 +61,19 @@ export default class Detail extends Component {
     this.setState({
       galery: Nresponse.data.hits,
       image: response.data.hits[0],
+      id: imageId,
       profile: `https://pixabay.com/users/${response.data.hits[0].user}-${response.data.hits[0].user_id}`,
     });
+  }
+
+  async componentDidUpdate() {
+    const { id } = this.state;
+    const { match } = this.props;
+    const imageId = match.params.id;
+
+    if (id !== imageId) {
+      window.location.reload();
+    }
   }
 
   handleInputChange = e => {
@@ -72,7 +84,17 @@ export default class Detail extends Component {
     e.preventDefault();
     const { find } = this.state;
 
-    this.props.history.push(`/search/${find}`);
+    if (find) {
+      this.props.history.push(`/search/${find}`);
+    } else {
+      this.props.history.push(`/search/-`);
+    }
+  };
+
+  handleTeste = async e => {
+    e.preventDefault();
+
+    alert('oi');
   };
 
   render() {
@@ -175,11 +197,7 @@ export default class Detail extends Component {
           <h2> Maybe you like </h2>
           <Galery>
             {galery.map(images => (
-              <Link
-                to={`/detail/${images.id}`}
-                key={images.id}
-                onClick={() => window.location.reload()}
-              >
+              <Link to={`/detail/${images.id}`} key={images.id}>
                 <img
                   src={images.webformatURL}
                   width={images.webformatWidth}

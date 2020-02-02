@@ -47,7 +47,11 @@ export default class Main extends Component {
     e.preventDefault();
     const { find } = this.state;
 
-    this.props.history.push(`/search/${find}`);
+    if (find) {
+      this.props.history.push(`/search/${find}`);
+    } else {
+      this.props.history.push(`/search/-`);
+    }
   };
 
   render() {
@@ -103,7 +107,7 @@ export default class Main extends Component {
         </Galery>
 
         <Details>
-          <Link to="/images">
+          <Link to="/search/-">
             <DiscoverButton>Discover more </DiscoverButton>
           </Link>
 

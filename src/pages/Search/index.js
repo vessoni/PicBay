@@ -39,11 +39,20 @@ export default class Main extends Component {
       },
     });
 
-    this.setState({
-      galery: response.data.hits,
-      find: item,
-      loading: false,
-    });
+    // Resolve on place holder search.
+    if (item === '-') {
+      this.setState({
+        galery: response.data.hits,
+        find: '',
+        loading: false,
+      });
+    } else {
+      this.setState({
+        galery: response.data.hits,
+        find: item,
+        loading: false,
+      });
+    }
   }
 
   apiGetResolution = async () => {
