@@ -18,6 +18,7 @@ const Galery = styled.div`
     img {
       width: 100%;
       height: auto;
+      border-radius: 5px;
     }
   }
 `;

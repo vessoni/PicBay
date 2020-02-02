@@ -42,6 +42,7 @@ export default class Main extends Component {
 
     const response = await api.get('', {
       params: {
+        webformatURL: '_340',
         per_page: 35,
         page,
       },
@@ -66,7 +67,6 @@ export default class Main extends Component {
   };
 
   handleSubmit = async e => {
-    alert('oi');
     e.preventDefault();
 
     const response = await api.get('');
