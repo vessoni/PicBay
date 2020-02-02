@@ -24,6 +24,11 @@ import {
   ProfilePicture,
   DescriptionPerfil,
   Tag,
+  FooterPage,
+  Download,
+  Recomend,
+  Details,
+  DiscoverButton,
 } from './styles';
 
 export default class Detail extends Component {
@@ -135,22 +140,63 @@ export default class Detail extends Component {
                 </p>
                 <p>Dimension</p>
               </Profile>
+              <Download>
+                <span>@Download Photography</span>
+                <a
+                  href={image.pageURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Tag>
+                    <p>
+                      <FaCloudDownloadAlt color="#53626c" size={25} />
+                      Download Now
+                    </p>
+                  </Tag>
+                </a>
+              </Download>
             </Content>
           </Inner>
         </Vertical>
 
-        <Galery>
-          {galery.map(images => (
-            <Link to={`/detail/${images.id}`} key={images.id}>
-              <img
-                src={images.webformatURL}
-                width={images.webformatWidth}
-                height={images.webformatHeight}
-                alt={images.tags}
-              />
+        <Recomend>
+          <h2> Maybe you like </h2>
+          <Galery>
+            {galery.map(images => (
+              <Link to={`/detail/${images.id}`} key={images.id}>
+                <img
+                  src={images.webformatURL}
+                  width={images.webformatWidth}
+                  height={images.webformatHeight}
+                  alt={images.tags}
+                />
+              </Link>
+            ))}
+          </Galery>{' '}
+          <Details>
+            <Link to="/images">
+              <DiscoverButton>Discover more </DiscoverButton>
             </Link>
-          ))}
-        </Galery>
+          </Details>
+        </Recomend>
+
+        <FooterPage>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <img src={logo} alt="Logo" width="40px" /> PicBay
+                </li>
+                <li>|</li>
+                <li>Made with ♡ - Alexandre Vessoni </li>
+                <li>|</li>
+                <li>
+                  <a href="https://alexandrevessoni.com/">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </FooterPage>
       </>
     );
   }

@@ -81,6 +81,8 @@ export const SubmitButton = styled.button.attrs({
 
 export const Vertical = styled.div`
   margin: 15px;
+  display: flex;
+  flex-direction: column;
 `;
 export const Inner = styled.div`
   display: flex;
@@ -178,5 +180,118 @@ export const Tag = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+`;
+
+export const Download = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  background: #e6ecf0;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin-top: 10px;
+  height: 50%;
+  justify-items: center;
+  justify-content: center;
+  span {
+    font-size: 14px;
+    color: #53626c;
+    box-shadow: 0px -2px 0px -1px rgba(0, 0, 0, 0.05);
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+export const Recomend = styled.div`
+  background-color: #fff;
+  h2 {
+    color: #53626c;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 100;
+  }
+`;
+
+export const Details = styled.div`
+  margin: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    width: 60%;
+    text-align: center;
+    text-justify: inter-word;
+    margin: 30px;
+  }
+`;
+
+export const DiscoverButton = styled.div`
+  background: #0097f0;
+  border: 0;
+  padding: 15px;
+  border-radius: 50px;
+  width: 250px;
+  color: #fff;
+  font-size: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+export const FooterPage = styled.footer`
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  nav,
+  ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    color: #667590;
+    font-weight: bold;
+    margin-left: 30px;
+    &:first-child {
+      color: #0097f0;
+    }
+    &:last-child {
+      margin-right: 15px;
+    }
   }
 `;
