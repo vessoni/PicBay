@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
@@ -62,6 +63,17 @@ export default class Detail extends Component {
       profile: `https://pixabay.com/users/${response.data.hits[0].user}-${response.data.hits[0].user_id}`,
     });
   }
+
+  handleInputChange = e => {
+    this.setState({ find: e.target.value });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    const { find } = this.state;
+
+    this.props.history.push(`/search/${find}`);
+  };
 
   render() {
     const { image, find, profile, galery } = this.state;

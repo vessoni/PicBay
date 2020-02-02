@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -67,7 +68,6 @@ export default class Main extends Component {
     await this.setState({
       page: action === 'back' ? page - 1 : page + 1,
     });
-    this.apiGetResolution();
   };
 
   handleInputChange = e => {
@@ -77,8 +77,7 @@ export default class Main extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const response = await api.get('');
-    console.log(response.data);
+    this.apiGetResolution();
   };
 
   render() {
