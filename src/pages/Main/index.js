@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -42,11 +44,10 @@ export default class Main extends Component {
   };
 
   handleSubmit = async e => {
-    alert('oi');
     e.preventDefault();
+    const { find } = this.state;
 
-    const response = await api.get('');
-    console.log(response.data);
+    this.props.history.push(`/search/${find}`);
   };
 
   render() {

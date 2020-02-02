@@ -163,7 +163,11 @@ export default class Detail extends Component {
           <h2> Maybe you like </h2>
           <Galery>
             {galery.map(images => (
-              <Link to={`/detail/${images.id}`} key={images.id}>
+              <Link
+                to={`/detail/${images.id}`}
+                key={images.id}
+                onClick={() => window.location.reload()}
+              >
                 <img
                   src={images.webformatURL}
                   width={images.webformatWidth}

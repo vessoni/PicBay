@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import Images from './pages/Images';
 import Detail from './pages/Detail';
+import Search from './pages/Search';
 
 export default function Routes() {
   return (
@@ -12,6 +13,7 @@ export default function Routes() {
         <Route path="/" exact component={Main} />
         <Route path="/images" component={Images} />
         <Route path="/detail/:id" component={Detail} />
+        <Route path="/search/:item" component={Search} />
       </Switch>
     </BrowserRouter>
   );

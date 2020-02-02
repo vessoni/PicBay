@@ -25,25 +25,32 @@ export default class Main extends Component {
   };
 
   async componentDidMount() {
-    alert('oi');
+    const { match } = this.props;
+
+    const { item } = match.params;
+
+    console.log(item);
+
     const response = await api.get('', {
       params: {
+        q: item,
         per_page: 35,
       },
     });
 
     this.setState({
       galery: response.data.hits,
+      find: item,
       loading: false,
     });
   }
 
   apiGetResolution = async () => {
-    const { page } = this.state;
+    const { page, find } = this.state;
 
     const response = await api.get('', {
       params: {
-        webformatURL: '_340',
+        q: find,
         per_page: 35,
         page,
       },
