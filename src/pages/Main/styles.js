@@ -167,8 +167,5 @@ export const FooterPage = styled.footer`
     &:first-child {
       color: #0097f0;
     }
-    &:last-child {
-      margin-right: 15px;
-    }
   }
 `;
